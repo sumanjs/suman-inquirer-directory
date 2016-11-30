@@ -1,6 +1,6 @@
 {
-  "name": "inquirer-directory",
-  "version": "2.1.0",
+  "name": "suman-inquirer-directory",
+  "version": "0.0.101",
   "description": "a directory (relative to given path) selector for Inquirer.js",
   "main": "index.js",
   "scripts": {
@@ -10,19 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicksrandall/inquierer-directory.git"
+    "url": "git+https://github.com/sumanjs/suman-inquirer-directory"
   },
   "keywords": [
     "Inquirer",
     "directory",
-    "prompt"
+    "prompt",
+    "suman",
+    "interactive"
   ],
   "author": "Nick Randall <nicksrandall@gmail.com> (http://nickrandall.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nicksrandall/inquierer-directory/issues"
+    "url": "https://github.com/sumanjs/suman-inquirer-directory/issues"
   },
-  "homepage": "https://github.com/nicksrandall/inquierer-directory#readme",
+  "homepage": "https://github.com/sumanjs/suman-inquirer-directory#readme",
   "dependencies": {
     "chalk": "^1.1.1",
     "cli-cursor": "^1.0.2",

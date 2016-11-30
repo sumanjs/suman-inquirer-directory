@@ -1,4 +1,6 @@
-# inquirer-directory
+# suman-inquirer-directory
+
+A fork of the inquirer-directory re-purposed for usage with the Suman project (suman interactive mode).
 
 Relative Directory prompt for [inquirer](https://github.com/SBoudrias/Inquirer.js)
 
@@ -7,7 +9,7 @@ Relative Directory prompt for [inquirer](https://github.com/SBoudrias/Inquirer.j
 ## Installation
 
 ```
-npm install --save inquirer-directory
+npm install --save suman-inquirer-directory
 ```
 
 ## Features
