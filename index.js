@@ -20,6 +20,8 @@ var Paginator = require('inquirer/lib/utils/paginator');
 var Choices = require('inquirer/lib/objects/choices');
 var Separator = require('inquirer/lib/objects/separator');
 
+const _suman = global.__suman = (global.__suman || {});
+
 /**
  * Module exports
  */
@@ -172,7 +174,6 @@ Prompt.prototype._run = function (cb) {
 Prompt.prototype.render = function (msg) {
 
   if(this.backspaceHit){
-    _interactiveDebug('backspace HIT in render() inquirer directory');
     return;
   }
 
@@ -214,7 +215,6 @@ Prompt.prototype.render = function (msg) {
 Prompt.prototype.handleSubmit = function (e) {
 
   // if(this.backspaceHit){
-  //   _interactiveDebug('backspace was hit in CHOOSE DIRECTORY (handleSubmit()).');
   //   this.screen.done();
   //   this.rl.removeAllListeners();
   //   return;
@@ -236,11 +236,9 @@ Prompt.prototype.handleSubmit = function (e) {
     // return choice === self.currentPath;
 
     if(self.backspaceHit){
-      _interactiveDebug('hit for 6 in inquirer directory.');
       return true;
     }
 
-    _interactiveDebug('inquirer directory choice => ', choice);
     choice = path.isAbsolute(choice) ? choice : path.resolve(self.currentPath + path.sep + choice);
     if (self.onlyOneFile && !fs.statSync(choice).isFile()) {
       self.render(chalk.red(' In this case, you must select a file (not a directory).'));
@@ -319,7 +317,6 @@ Prompt.prototype.handleBack = function () {
 Prompt.prototype.onSubmit = function (value) {
 
   if(this.backspaceHit){
-    _interactiveDebug('backspace was hit in CHOOSE DIRECTORY (onSubmit()).');
     this.rl.emit('close-this-shiz');
     this.screen.done();
     this.rl.removeAllListeners();
@@ -339,11 +336,7 @@ Prompt.prototype.onSubmit = function (value) {
 
 Prompt.prototype.onBackspace = function () {
   if (this.opt.onLeftKey) {
-    _interactiveDebug('left key in base is about to run');
     this.opt.onLeftKey.bind(this)();
-  }
-  else{
-    _interactiveDebug('no left key');
   }
 };
 
@@ -470,8 +463,10 @@ function getDirectories (basePath, includeFiles, userSuppliedFilterFn) {
     var isNotDotFile = path.basename(file).indexOf('.') !== 0;
     return isDir && isNotDotFile && (userSuppliedFilterFn || allOK)(absPath);
 
-  }).map(function (item) {
+  })
+  .map(function (item) {
     // return path.join(basePath, item);
     return item;
-  }).sort();
+  })
+  .sort();
 }
