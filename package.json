@@ -1,6 +1,6 @@
 {
   "name": "suman-inquirer-directory",
-  "version": "0.0.101",
+  "version": "0.0.102",
   "description": "a directory (relative to given path) selector for Inquirer.js",
   "main": "index.js",
   "scripts": {
